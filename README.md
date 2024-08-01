@@ -1,33 +1,61 @@
+
 # RoboticArm
+
+![Status](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=RED&style=for-the-badge)
+
 
 ## Introduction
 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.
+This project uses .NET MAUI and Evergine to control a 5-axis robotic arm. It was developed with the goal of exploring the integration between these two technologies, leveraging the cross-platform user interface capabilities of .NET MAUI and the powerful 3D rendering of Evergine. The project not only demonstrates the control of a robotic arm but also serves as a case study on how to combine a modern UI development platform with a robust graphics engine for interactive simulations and visualizations.
 
-## Getting Started
+## Functionality
+The robotic arm can be moved along its independent axes, allowing precise control of each segment. Additionally, a basic inverse kinematics model is implemented to assist with positioning the arm, though this model is still a work in progress and requires further improvement.
 
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
+### Collision Detection
+We encountered issues with collision detection in Evergine. Currently, the collision detection feature is not functioning as expected.
 
-1. Installation process
-2. Software dependencies
-3. Latest releases
-4. API references
+```csharp
+private bool DetectCollision()
+{
+    /* I couldn't get collisions to work correctly  (ಥ_ಥ)
+     * Two problems occurring:
+     *          False start collision
+     *          End Collision is not called sometimes
+     *          I must be missing something ¯\_(ツ)_/¯
+     */
 
-## Build and Test
+    foreach (var axis in DictEntities)
+        if (axis.Value.IsColliding()) return true;
 
-TODO: Describe and show how to build your code and run the tests.
+    return false;
+}
+```
 
-## Contribute
 
-TODO: Explain how other users and developers can contribute to make your code better.
+## Installation
+### Prerequisites
+- .NET 6.0 or higher
+- Visual Studio 2022 with MAUI support
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops).
+### Installation Steps
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/Junior-Oliveira-BR/RoboticArm.MAUI.git
+    cd RoboticArm.MAUI
+    ```
+2. Open the project in Visual Studio 2022.
+3. Restore the dependencies:
+    ```bash
+    dotnet restore
+    ```
+4. Build and run the project.
 
-----
-Powered by **[Evergine](http://www.evergine.com)**
+## Contributing
+We welcome contributions to the project! If you would like to contribute, you can refer to the [GitHub documentation on how to do so](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project).
 
-LET'S CONNECT!
+Thank you for your contributions!
 
-- [Youtube](https://www.youtube.com/subscription_center?add_user=EvergineChannel)
-- [Twitter](https://twitter.com/EvergineTeam)
-- [Blog](http://geeks.ms/evergineteam/)
+## Contact
+- **Email**: [junioroliveirabts@gmail.com](mailto:junioroliveirabts@gmail.com)
+- **GitHub**: [Junior-Oliveira-BR](https://github.com/Junior-Oliveira-BR)
+- **LinkedIn**: [José Donizete Oliveira Júnior](https://www.linkedin.com/in/josé-donizete-oliveira-júnior-65628348/)
