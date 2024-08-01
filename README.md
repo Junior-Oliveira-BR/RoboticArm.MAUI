@@ -10,7 +10,7 @@ This project uses .NET MAUI and Evergine to control a 5-axis robotic arm. It was
 
 ## Functionality
 
-![Application Operation](RoboticArm.MAUI/Resources/Assets/funcionamento.gif)
+![Application Operation](./RoboticArm.MAUI/Resources/Assets/funcionamento.gif)
 
 The robotic arm can be moved along its independent axes, allowing precise control of each segment. Additionally, a basic inverse kinematics model is implemented to assist with positioning the arm, though this model is still a work in progress and requires further improvement.
 
