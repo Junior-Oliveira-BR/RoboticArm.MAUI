@@ -1,0 +1,81 @@
+!Evergine.Assets.Exporters.ModelMetaFile,Evergine.Assets
+Id: efa762e1-49c6-4150-ab44-93127d120450
+Clips:
+  - AdditiveReferenceFrame: 0
+    AdditiveReferenceSourceTrack: null
+    EndTime: 2.0
+    Events: []
+    InPlaceMode: None
+    Name: Take 001
+    RootMotion: false
+    RootMotionNode: null
+    SourceTrack: null
+    StartTime: 0.0
+    Type: Default
+DefaultProfile:
+  ExcludeAsset: false
+  Name: null
+  Platform: Undefined
+ExportAnimations: true
+ExportAsRaw: false
+GenerateTangentSpace: true
+Profiles: {}
+Source:
+  Header:
+    Id: 733c7074-c8e1-4153-8ec1-686bbdf99dff
+    IsCompressed: true
+  LastModified: 0001-01-01T00:00:00.0000000
+  ModelInfo:
+    Id: 48134c93-06d8-4ea9-97cd-9392cf26b027
+    AnimationTracks:
+      - AdditiveReferenceFrame: 0
+        AdditiveReferenceSourceTrack: null
+        EndTime: 2.0
+        Events: []
+        InPlaceMode: None
+        Name: Take 001
+        RootMotion: false
+        RootMotionNode: null
+        SourceTrack: null
+        StartTime: 0.0
+        Type: Default
+    EmbeddedResources: null
+    Materials:
+      - Item1: Blue
+        Item2: caeb4cdf-ad8c-4d5c-b610-5d921a42c2bd
+      - Item1: 'Material #61'
+        Item2: 10a26f1c-d849-4ada-b001-2c18681a6387
+      - Item1: 'Material #27'
+        Item2: f1edb7b3-1a8e-4603-98a5-bffb497b886f
+      - Item1: 'Material #59'
+        Item2: 5df5d120-5577-46eb-a3e0-4cf575526dd4
+      - Item1: dark grey low gloss plastic
+        Item2: 8bf81001-6b15-45d7-b470-3a79ca29bebf
+      - Item1: Black
+        Item2: 769ba073-e6ff-4267-89af-1bee37f048f3
+      - Item1: green medium gloss plastic
+        Item2: 328bd910-5542-4b49-b44b-d9205c15a4e7
+      - Item1: polished aluminum
+        Item2: 49fd5d55-9af6-42cc-ac6f-6d44be461093
+      - Item1: black satin finish plastic
+        Item2: 4026ba03-c1c6-4327-bcbc-8b6a57e4de73
+      - Item1: green satin finish plastic
+        Item2: b588370e-6b27-407f-bf66-808dacdc4cc1
+      - Item1: White
+        Item2: f352f680-0607-4142-9b75-212723cd8515
+    Nodes:
+      - RootNode
+      - RootNode.Axis2
+      - RootNode.Axis4
+      - RootNode.Axis3
+      - RootNode.Axis1
+      - RootNode.Base
+      - RootNode.Axis5
+      - RootNode.Axis5.BaseClaw
+      - RootNode.Axis5.BaseClaw.Gear2
+      - RootNode.Axis5.BaseClaw.Gear1
+      - RootNode.Axis5.BaseClaw.Guide2
+      - RootNode.Axis5.BaseClaw.Guide1
+      - RootNode.Axis5.BaseClaw.Claw1
+      - RootNode.Axis5.BaseClaw.Claw2
+SwapWindingOrder: false

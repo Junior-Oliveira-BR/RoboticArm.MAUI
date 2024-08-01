@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!--  NAVIGATION IMAGEBUTTON -->
+    <Style x:Key="NavImageButtonStyle" TargetType="ImageButton">
+        <Setter Property="CornerRadius" Value="20"/>
+        <Setter Property="WidthRequest" Value="40"/>
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
+
+</ResourceDictionary>

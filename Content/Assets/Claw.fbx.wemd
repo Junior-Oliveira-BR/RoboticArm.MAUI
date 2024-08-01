@@ -1,0 +1,65 @@
+!Evergine.Assets.Exporters.ModelMetaFile,Evergine.Assets
+Id: 203f7506-cfef-424f-914a-4dc382960b2a
+Clips:
+  - AdditiveReferenceFrame: 0
+    AdditiveReferenceSourceTrack: null
+    EndTime: 2.0
+    Events: []
+    InPlaceMode: None
+    Name: Take 001
+    RootMotion: false
+    RootMotionNode: null
+    SourceTrack: null
+    StartTime: 0.0
+    Type: Default
+DefaultProfile:
+  ExcludeAsset: false
+  Name: null
+  Platform: Undefined
+ExportAnimations: true
+ExportAsRaw: false
+GenerateTangentSpace: true
+Profiles: {}
+Source:
+  Header:
+    Id: 87346f13-b404-4846-be6c-e724d6bf8ac9
+    IsCompressed: true
+  LastModified: 0001-01-01T00:00:00.0000000
+  ModelInfo:
+    Id: 6520edf6-3479-4948-94c9-8643c902bef1
+    AnimationTracks:
+      - AdditiveReferenceFrame: 0
+        AdditiveReferenceSourceTrack: null
+        EndTime: 2.0
+        Events: []
+        InPlaceMode: None
+        Name: Take 001
+        RootMotion: false
+        RootMotionNode: null
+        SourceTrack: null
+        StartTime: 0.0
+        Type: Default
+    EmbeddedResources: null
+    Materials:
+      - Item1: Blue
+        Item2: 2af6b224-099c-4c24-964e-e408591a996f
+      - Item1: dark grey low gloss plastic
+        Item2: 90c3d011-5185-4ae1-82ea-a02aae502a9d
+      - Item1: 'Material #61'
+        Item2: c0b05961-8cc5-40aa-bd2f-3a4cdbc5810a
+      - Item1: 'Material #59'
+        Item2: 57809566-ad4e-4d5f-8c50-c64b907d5fe3
+      - Item1: 'Material #27'
+        Item2: f63a0464-90fb-43cf-9959-e976786bb297
+      - Item1: White
+        Item2: 96026258-eff1-4f53-8ea1-87ef3c83ca0c
+    Nodes:
+      - RootNode
+      - BaseClaw
+      - BaseClaw.Gear2
+      - BaseClaw.Gear1
+      - BaseClaw.Guide2
+      - BaseClaw.Guide1
+      - BaseClaw.Claw1
+      - BaseClaw.Claw2
+SwapWindingOrder: false

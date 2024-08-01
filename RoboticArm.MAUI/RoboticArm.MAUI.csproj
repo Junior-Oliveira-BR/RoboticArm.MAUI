@@ -1,0 +1,147 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net7.0-android;net7.0-ios</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
+    <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+    <!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
+    <OutputType>Exe</OutputType>
+    <RootNamespace>RoboticArm.MAUI</RootNamespace>
+    <UseMaui>true</UseMaui>
+    <SingleProject>true</SingleProject>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- Display name -->
+    <ApplicationTitle>RoboticArm.MAUI</ApplicationTitle>
+    <!-- App Identifier -->
+    <ApplicationId>com.companyname.MAUI.RoboticArm</ApplicationId>
+    <ApplicationIdGuid>d62842df-e7e1-4c24-a05d-dea1969b1bd2</ApplicationIdGuid>
+    <!-- Versions -->
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <ApplicationVersion>1</ApplicationVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+    <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+    <!-- Evergine -->
+    <EvergineAssetContent>$(SolutionDir)Content</EvergineAssetContent>
+    <EvergineProjectFilePath>$(SolutionDir)RoboticArm.weproj</EvergineProjectFilePath>
+    <DefaultLanguage>Pt-BR</DefaultLanguage>
+    <AssemblyName>RoboticArm.MAUI</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- App Icon -->
+    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+    <!-- Splash Screen -->
+    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+    <MauiSplashScreen Include="Resources\Images\splash.svg" Color="#512BD4" BaseSize="128,128" />
+    <!-- Images -->
+    <MauiImage Include="Resources\Images\*" />
+    <MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+    <!-- Custom Fonts -->
+    <MauiFont Include="Resources\Fonts\*" />
+    <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+    <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\Fonts\ArmRobotic.ttf" />
+    <None Remove="Resources\Fonts\Font Awesome 6 Free-Regular-400.otf" />
+    <None Remove="Resources\Images\claw_front.png" />
+    <None Remove="Resources\Images\connected.svg" />
+    <None Remove="Resources\Images\disconnect.svg" />
+    <None Remove="Resources\Images\ladder_input_down.svg" />
+    <None Remove="Resources\Images\ladder_input_up.svg" />
+    <None Remove="Resources\Images\ladder_output_off.svg" />
+    <None Remove="Resources\Images\ladder_output_on.svg" />
+    <None Remove="Resources\Images\ladder_pot_off.svg" />
+    <None Remove="Resources\Images\ladder_pot_on.svg" />
+    <None Remove="Resources\Images\menu_execute.svg" />
+    <None Remove="Resources\Images\menu_move.svg" />
+    <None Remove="Resources\Images\menu_program.svg" />
+    <None Remove="Resources\Images\splash.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\emergencyloose.svg" />
+    <EmbeddedResource Include="Resources\Images\emergencypressed.svg" />
+    <EmbeddedResource Include="Resources\Images\rotatebuttonpressed.svg" />
+    <EmbeddedResource Include="Resources\Images\rotatebuttonrelease.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Maui" Version="6.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+    <PackageReference Include="MR.Gestures" Version="4.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0-preview.86" />
+    <PackageReference Include="SkiaSharp.Svg" Version="1.60.0" />
+    <PackageReference Include="Svg.Skia" Version="1.0.0.6" />
+    <PackageReference Include="Syncfusion.Maui.Buttons" Version="24.2.6" />
+    <PackageReference Include="Syncfusion.Maui.Inputs" Version="25.1.41" />
+    <PackageReference Include="Syncfusion.Maui.TabView" Version="25.1.39" />
+    <PackageReference Include="Syncfusion.Maui.TreeView" Version="25.1.39" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RoboticArm\RoboticArm.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <MauiXaml Update="Resources\Styles\MyStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\Templates\ButtonMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\Templates\UpDownTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(TargetFramework)' == 'net7.0-android'">
+      <PropertyGroup>
+        <EvergineProfileName>#MAUI#Android</EvergineProfileName>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Evergine.AndroidView" Version="2023.9.28.1837" />
+        <PackageReference Include="Evergine.Bindings.Vulkan" Version="2024.4.1.26" />
+        <PackageReference Include="Evergine.HLSLEverywhere" Version="2023.9.28.1837" />
+        <PackageReference Include="Evergine.LibBulletc.Natives" Version="2023.11.28.20" />
+        <PackageReference Include="Evergine.OpenAL" Version="2023.9.28.1837" />
+        <PackageReference Include="Evergine.Targets" Version="2023.9.28.1837" />
+        <PackageReference Include="Evergine.Targets.Maui" Version="2023.9.28.1837" />
+        <PackageReference Include="Evergine.Vulkan" Version="2023.9.28.1837" />
+      </ItemGroup>
+      <ItemGroup>
+        <TrimmerRootDescriptor Include="Platforms\Android\linker.xml" />
+      </ItemGroup>
+    </When>
+    <When Condition="'$(TargetFramework)' == 'net7.0-ios'">
+      <PropertyGroup>
+        <EvergineProfileName>#MAUI#iOS</EvergineProfileName>
+        <!--
+					This workarounds the Metal and Maui errors
+					arg store type not yet supported (Metal) https://github.com/dotnet/runtime/issues/82976
+					Maui Release IOS XamlParseException https://github.com/dotnet/maui/issues/12519
+				-->
+        <MtouchInterpreter>-all</MtouchInterpreter>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Evergine.iOSView" Version="2023.9.28.1837" />
+        <PackageReference Include="Evergine.HLSLEverywhere" Version="2023.9.28.1837" />
+        <PackageReference Include="Evergine.LibBulletc.Natives" Version="2023.11.28.20" />
+        <PackageReference Include="Evergine.Metal" Version="2023.9.28.1837" />
+        <PackageReference Include="Evergine.Targets" Version="2023.9.28.1837" />
+        <PackageReference Include="Evergine.Targets.iOS" Version="2023.9.28.1837" />
+      </ItemGroup>
+    </When>
+    <When Condition="'$(TargetFramework)' == 'net7.0-windows10.0.19041.0'">
+      <PropertyGroup>
+        <EvergineProfileName>#MAUI#Windows</EvergineProfileName>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Evergine.CodeScenes" Version="2023.9.28.1837" />
+        <PackageReference Include="Evergine.DirectX11" Version="2023.9.28.1837" />
+        <PackageReference Include="Evergine.HLSLEverywhere" Version="2023.9.28.1837" />
+        <PackageReference Include="Evergine.XAudio2" Version="2023.9.28.1837" />
+        <PackageReference Include="Evergine.Targets" Version="2023.9.28.1837" />
+        <PackageReference Include="Evergine.Targets.Maui" Version="2023.9.28.1837" />
+        <PackageReference Include="Evergine.WinUI" Version="2023.9.28.1837" />
+      </ItemGroup>
+    </When>
+  </Choose>
+</Project>

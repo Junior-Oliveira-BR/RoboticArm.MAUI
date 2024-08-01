@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="RoboticArm.MAUI.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:RoboticArm.MAUI.Helpers"
+    xmlns:evergine="clr-namespace:RoboticArm.MAUI.Evergine"
+    xmlns:controls="clr-namespace:RoboticArm.MAUI.Controls"
+    xmlns:converters="clr-namespace:RoboticArm.MAUI.Converters"
+    xmlns:triggers="clr-namespace:RoboticArm.MAUI.Triggers"
+    xmlns:templates="clr-namespace:RoboticArm.MAUI.Views.Templates"
+    xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+    xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+    xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+    xmlns:treeview="clr-namespace:Syncfusion.Maui.TreeView;assembly=Syncfusion.Maui.TreeView"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:BoolToColorConverter x:Key="boolToColorConverter"/>
+            <converters:Vector3Converter x:Key="vector3Converter"/>
+            <converters:QuaternionToEulerAnglesConverter x:Key="quaternionConverter"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/../Resources/Styles/MyStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+   
+    <Grid RowDefinitions="63, *, 40" ColumnDefinitions="Auto, *, Auto">
+
+        <Grid x:Name="GridSpeed" Grid.Row="0" Grid.ColumnSpan="3" BackgroundColor="#515151">
+            <VerticalStackLayout WidthRequest="200"
+                                 Grid.Column="3"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="End">
+                <Slider x:Name="SliderSpeed"
+                        Maximum="100"
+                        Minimum="2"
+                        ValueChanged="SliderSpeed_ValueChanged"/>
+                <Label x:Name="lblSpeed"
+                       HorizontalOptions="Center"
+                       TextColor="White"/>
+            </VerticalStackLayout>
+        </Grid>
+
+        <Grid x:Name="RobotLayout"  Grid.Column="0" Grid.Row="1">
+            <evergine:EvergineView x:Name="MainEvergineView"/>
+            <ImageButton 
+                Style="{StaticResource NavImageButtonStyle}"
+                HorizontalOptions="End"
+                Clicked="HideRobot_Clicked">
+                <ImageButton.Source>
+                    <FontImageSource 
+                        FontFamily="MyFontIcons"
+                        Glyph="{x:Static helpers:MyFontIcons.ArrowheadleftWf}" 
+                        Color="Gray"
+                        Size="26"/>
+                </ImageButton.Source>
+            </ImageButton>
+            <Grid WidthRequest="70" RowDefinitions="Auto,Auto,Auto,Auto,Auto" HorizontalOptions="Start" VerticalOptions="Start">
+                <Button x:Name="BtStart"
+                        Grid.Row="0"
+                        Margin="0,2"
+                        Text="HOME"
+                        TextColor="White"
+                        FontSize="10"
+                        MinimumHeightRequest="30"
+                        BackgroundColor="#22000000"
+                        Command="{Binding ViewCommand}" CommandParameter="HOME"/>
+                <Button x:Name="BtRight"
+                        Grid.Row="1"
+                        Margin="0,2"
+                        Text="RIGHT"
+                        TextColor="White"
+                        FontSize="10"
+                        MinimumHeightRequest="30"
+                        BackgroundColor="#22000000"
+                        Command="{Binding ViewCommand}" CommandParameter="RIGHT"/>
+                <Button x:Name="BtLeft"
+                        Grid.Row="2"
+                        Margin="0,2"
+                        Text="LEFT"
+                        TextColor="White"
+                        FontSize="10"
+                        MinimumHeightRequest="30"
+                        BackgroundColor="#22000000"
+                        Command="{Binding ViewCommand}" CommandParameter="LEFT"/>
+                <Button x:Name="BtBack"
+                        Grid.Row="3"
+                        Margin="0,2"
+                        Text="BACK"
+                        TextColor="White"
+                        FontSize="10"
+                        MinimumHeightRequest="30"
+                        BackgroundColor="#22000000"
+                        Command="{Binding ViewCommand}" CommandParameter="BACK"/>
+                <Button x:Name="BtFront"
+                        Grid.Row="4"
+                        Margin="0,2"
+                        Text="FRONT"
+                        TextColor="White"
+                        FontSize="10"
+                        MinimumHeightRequest="30"
+                        BackgroundColor="#22000000"
+                        Command="{Binding ViewCommand}" CommandParameter="FRONT"/>
+
+
+            </Grid>
+            <VerticalStackLayout VerticalOptions="FillAndExpand" HorizontalOptions="End" WidthRequest="1" BackgroundColor="#AAAAAAAA"/>
+        </Grid>
+
+        <Grid x:Name="CodeLayout" Grid.Column="1" Grid.Row="1">
+            <VerticalStackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Start" WidthRequest="1" BackgroundColor="#AAAAAAAA"/>
+            <tabView:SfTabView IndicatorPlacement="Fill" TabBarBackground="LightBlue" IndicatorBackground="White">
+                <tabView:SfTabView.Items>
+                    <tabView:SfTabItem Header="Tools">
+                        <tabView:SfTabItem.Content>
+                            <Grid HorizontalOptions="FillAndExpand"  
+                                  VerticalOptions="FillAndExpand" 
+                                  RowDefinitions="1*, 40, 2*" 
+                                  ColumnDefinitions="1.5*, 2*" 
+                                  x:Name="LayoutTools">
+                                <editors:SfComboBox x:Name="CbxTools"
+                                                    Grid.Row="0"
+                                                    Grid.ColumnSpan="2"
+                                                    WidthRequest="250"
+                                                    HeightRequest="40"
+                                                    DisplayMemberPath = "Name"
+                                                    TextMemberPath = "Name"
+                                                    HorizontalOptions="Center"
+                                                    VerticalOptions="Center"
+                                                    ItemsSource="{Binding LstTInfoTools}"
+                                                    SelectedItem="{Binding ToolInfoSelected, Mode=TwoWay}"/>
+
+                                <Label x:Name="LblNameTool"
+                                       Grid.Row="1"
+                                       Grid.Column="0"
+                                       Margin="10,0,0,0"
+                                       FontAttributes="Bold,Italic"
+                                       FontSize="16"
+                                       Text="{Binding ToolInfoSelected.Name}"/>
+                                <Label x:Name="EdtTool"
+                                       Grid.Row="2"
+                                       Grid.Column="0"
+                                       Margin="10,0,0,0"
+                                       VerticalOptions="Start"
+                                       Text="{Binding ToolInfoSelected.Description}"/>
+                                <Image x:Name="ImgTool"
+                                       Grid.Row="1"
+                                       Grid.RowSpan="2"
+                                       Grid.Column="1"
+                                       VerticalOptions="Start"
+                                       Source="{Binding ToolInfoSelected.Image}"/>
+                            </Grid>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+
+                </tabView:SfTabView.Items>
+            </tabView:SfTabView>
+            <VerticalStackLayout VerticalOptions="FillAndExpand" HorizontalOptions="End" WidthRequest="1" BackgroundColor="#AAAAAAAA"/>
+            <ImageButton 
+                Style="{StaticResource NavImageButtonStyle}"
+                HorizontalOptions="Start" 
+                Clicked="ShowRobot_Clicked">
+                <ImageButton.Source>
+                    <FontImageSource
+                        FontFamily="MyFontIcons"
+                        Glyph="{x:Static helpers:MyFontIcons.ArrowheadrightWf}" 
+                        Color="Gray"
+                        Size="26"/>
+                </ImageButton.Source>
+            </ImageButton>
+        </Grid>
+
+        <Grid x:Name="GridController" Grid.Column="2" Grid.Row="1" RowDefinitions="50, 150,  2, 50, 300">
+            <buttons:SfSegmentedControl CornerRadius="0" Grid.Row="0" SelectedIndex="{Binding SelectedCoord, Mode=TwoWay}" >
+                <buttons:SfSegmentedControl.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Base</x:String>
+                        <x:String>Ferramenta</x:String>
+                    </x:Array>
+                </buttons:SfSegmentedControl.ItemsSource>
+            </buttons:SfSegmentedControl>
+            <Grid Grid.Row="1">
+                <Image HeightRequest="130" Source="robot_image.png" />
+                <Image HeightRequest="130" Source="base_coord.png" IsVisible="{Binding BaseSelected}"/>
+                <Image HeightRequest="130" Source="tool_coord.png" IsVisible="{Binding ToolSelected}"/>
+            </Grid>
+
+            <HorizontalStackLayout BackgroundColor="#AAAAAAAA" HorizontalOptions="FillAndExpand" HeightRequest="1" VerticalOptions="Start" Grid.Row="2"/>
+            <buttons:SfSegmentedControl CornerRadius="0" Grid.Row="3"  SelectedIndex="{Binding SelectedMovement, Mode=TwoWay}" >
+                <buttons:SfSegmentedControl.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Articulação</x:String>
+                        <x:String>Coordenadas</x:String>
+                    </x:Array>
+                </buttons:SfSegmentedControl.ItemsSource>
+            </buttons:SfSegmentedControl>
+
+            <Grid Grid.Row="4">
+                <Grid x:Name="cartesianGrid"
+                      RowDefinitions="65,65,65"
+                      ColumnDefinitions="100,20,100"
+                      HorizontalOptions="Center"
+                      IsVisible="{Binding CoordsSelected}">
+                    <Button Text="-X"
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Margin="5"
+                            BackgroundColor="Red">
+                        <Button.Behaviors>
+                            <toolkit:EventToCommandBehavior
+                                EventName="Pressed"
+                                Command="{Binding CartesianPressedCommand}"
+                                CommandParameter="XNegative"/>
+                            <toolkit:EventToCommandBehavior
+                                EventName="Released"
+                                Command="{Binding CartesianReleasedCommand}"
+                                CommandParameter="XNegative"/>
+                        </Button.Behaviors>
+                        <Button.Triggers>
+                            <EventTrigger Event="Pressed">
+                                <triggers:ButtonTriggerAction BackgroundColor="Gray" />
+                            </EventTrigger>
+                            <EventTrigger Event="Released">
+                                <triggers:ButtonTriggerAction BackgroundColor="Red" />
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    <Button Text="X+"
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Margin="5"
+                            BackgroundColor="Red">
+                        <Button.Behaviors>
+                            <toolkit:EventToCommandBehavior
+                                EventName="Pressed"
+                                Command="{Binding CartesianPressedCommand}"
+                                CommandParameter="XPositive"/>
+                            <toolkit:EventToCommandBehavior
+                                EventName="Released"
+                                Command="{Binding CartesianReleasedCommand}"
+                                CommandParameter="XPositive"/>
+                        </Button.Behaviors>
+
+                        <Button.Triggers>
+                            <EventTrigger Event="Pressed">
+                                <triggers:ButtonTriggerAction BackgroundColor="Gray" />
+                            </EventTrigger>
+                            <EventTrigger Event="Released">
+                                <triggers:ButtonTriggerAction BackgroundColor="Red" />
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+
+                    <Button Text="-Y"
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Margin="5"
+                            BackgroundColor="LimeGreen">
+                        <Button.Behaviors>
+                            <toolkit:EventToCommandBehavior
+                                EventName="Pressed"
+                                Command="{Binding CartesianPressedCommand}"
+                                CommandParameter="YNegative"/>
+                            <toolkit:EventToCommandBehavior
+                                EventName="Released"
+                                Command="{Binding CartesianReleasedCommand}"
+                                CommandParameter="YNegative"/>
+                        </Button.Behaviors>
+                        <Button.Triggers>
+                            <EventTrigger Event="Pressed">
+                                <triggers:ButtonTriggerAction BackgroundColor="Gray" />
+                            </EventTrigger>
+                            <EventTrigger Event="Released">
+                                <triggers:ButtonTriggerAction BackgroundColor="LimeGreen" />
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    <Button Text="Y+"
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Margin="5"
+                            BackgroundColor="LimeGreen">
+                        <Button.Behaviors>
+                            <toolkit:EventToCommandBehavior
+                                EventName="Pressed"
+                                Command="{Binding CartesianPressedCommand}"
+                                CommandParameter="YPositive"/>
+                            <toolkit:EventToCommandBehavior
+                                EventName="Released"
+                                Command="{Binding CartesianReleasedCommand}"
+                                CommandParameter="YPositive"/>
+                        </Button.Behaviors>
+                        <Button.Triggers>
+                            <EventTrigger Event="Pressed">
+                                <triggers:ButtonTriggerAction BackgroundColor="Gray" />
+                            </EventTrigger>
+                            <EventTrigger Event="Released">
+                                <triggers:ButtonTriggerAction BackgroundColor="LimeGreen" />
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+
+                    <Button Text="-Z"
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Margin="5"
+                            BackgroundColor="DeepSkyBlue">
+                        <Button.Behaviors>
+                            <toolkit:EventToCommandBehavior
+                                EventName="Pressed"
+                                Command="{Binding CartesianPressedCommand}"
+                                CommandParameter="ZNegative"/>
+                            <toolkit:EventToCommandBehavior
+                                EventName="Released"
+                                Command="{Binding CartesianReleasedCommand}"
+                                CommandParameter="ZNegative"/>
+                        </Button.Behaviors>
+                        <Button.Triggers>
+                            <EventTrigger Event="Pressed">
+                                <triggers:ButtonTriggerAction BackgroundColor="Gray" />
+                            </EventTrigger>
+                            <EventTrigger Event="Released">
+                                <triggers:ButtonTriggerAction BackgroundColor="DeepSkyBlue" />
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    <Button Text="Z+"
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            Margin="5"
+                            BackgroundColor="DeepSkyBlue">
+                        <Button.Behaviors>
+                            <toolkit:EventToCommandBehavior
+                                EventName="Pressed"
+                                Command="{Binding CartesianPressedCommand}"
+                                CommandParameter="ZPositive"/>
+                            <toolkit:EventToCommandBehavior
+                                EventName="Released"
+                                Command="{Binding CartesianReleasedCommand}"
+                                CommandParameter="ZPositive"/>
+                        </Button.Behaviors>
+                        <Button.Triggers>
+                            <EventTrigger Event="Pressed">
+                                <triggers:ButtonTriggerAction BackgroundColor="Gray" />
+                            </EventTrigger>
+                            <EventTrigger Event="Released">
+                                <triggers:ButtonTriggerAction BackgroundColor="DeepSkyBlue" />
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+                </Grid>
+
+                <CollectionView x:Name="collectionView"
+                                ItemsSource="{Binding LstJoints}"
+                                HorizontalOptions="CenterAndExpand"
+                                IsVisible="{Binding JointsSelected}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical"
+                                           ItemSpacing="5" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid x:Name="Item" ColumnDefinitions="Auto, Auto" Margin="10,0">
+                                <Label 
+                                    Text="{Binding Name}"
+                                    Margin="10,0"
+                                    FontSize="12"
+                                    Grid.Column="0"
+                                    TextColor="#515151"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    FontAttributes="Bold"/>
+                                <Border
+                                    Grid.Column="1"
+                                    Stroke="{Binding IsLimited, Converter={StaticResource boolToColorConverter}}"
+                                    BackgroundColor="#EEEEEE"
+                                    HeightRequest="32"
+                                    WidthRequest="200">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="20,20,20,20"/>
+                                    </Border.StrokeShape>
+                                    <Grid HeightRequest="30" VerticalOptions="Center" ColumnDefinitions="50, *, 50">
+                                        <controls:SkiaButton
+                                            Grid.Column="0"
+                                            IsToogle="False"
+                                            Flip="True"
+                                            ReleaseImage="rotatebuttonrelease"
+                                            PressedImage="rotatebuttonpressed"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            WidthRequest="30"
+                                            HeightRequest="30"
+                                            BindingContext="{Binding Source={x:Reference collectionView}, Path=BindingContext}"
+                                            CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"
+                                            CommandLoose="{Binding CCWReleaseCommand}"
+                                            CommandPressed="{Binding CCWPressedCommand}"/>
+
+                                        <Label 
+                                            Grid.Column="1"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            FontSize="12"
+                                            Text="{Binding Angle, StringFormat='{0:0.0}º'}"/>
+
+                                        <controls:SkiaButton
+                                            Grid.Column="2"
+                                            IsToogle="False"
+                                            ReleaseImage="rotatebuttonrelease"
+                                            PressedImage="rotatebuttonpressed"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            WidthRequest="30"
+                                            HeightRequest="30"
+                                            BindingContext="{Binding Source={x:Reference collectionView}, Path=BindingContext}"
+                                            CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"
+                                            CommandLoose="{Binding CWReleaseCommand}"
+                                            CommandPressed="{Binding CWPressedCommand}"/>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </Grid>
+
+        <Grid x:Name="MenuBottom" Grid.Row="2" Grid.ColumnSpan="3" BackgroundColor="#515151">
+            <HorizontalStackLayout Margin="5,0">
+                <Grid>
+                    <Image Source="disconnect.png"
+                           Aspect="AspectFill"
+                           WidthRequest="30"
+                           HeightRequest="30"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+
+                    <Image Source="connected.png"
+                           Aspect="AspectFill"
+                           WidthRequest="30"
+                           HeightRequest="30"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                </Grid>
+                <Label Margin="10,0" 
+                       Text="Connected"
+                       VerticalOptions="Center"
+                       TextColor="White"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Margin="5,0" HorizontalOptions="End">
+                <Label Margin="10,0" 
+                   Text="Simulation"
+                   VerticalOptions="Center"
+                   TextColor="White"/>
+                
+                <buttons:SfSwitch />
+                
+            </HorizontalStackLayout>
+            
+        </Grid>
+    </Grid>  
+</ContentPage>

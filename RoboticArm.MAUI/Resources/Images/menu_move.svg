@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<svg
+   viewBox="0 0 192 192"
+   version="1.1"
+   class="si-glyph si-glyph-arrow-move"
+   id="svg6"
+   sodipodi:docname="si-glyph-arrow-move.svg"
+   width="192"
+   height="192"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <!-- Generator: Sketch 3.0.3 (7891) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title1">104</title>
+  <defs
+     id="defs1" />
+  <g
+     stroke="none"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd"
+     id="g6"
+     transform="matrix(11.762743,0,0,11.762743,1.6994604,2.3906963)"
+     style="fill:#ffffff">
+    <g
+       fill="#434343"
+       id="g5"
+       style="fill:#ffffff">
+      <path
+         d="M 7.946,9.976 C 9.0207461,9.976 9.9896851,9.0859421 9.9896851,7.988 9.9896851,6.8900579 9.0207461,6 7.946,6 6.8712539,6 6,6.8900579 6,7.988 6,9.0859421 6.8712539,9.976 7.946,9.976 Z"
+         class="si-glyph-fill"
+         id="path1"
+         style="fill:#ffffff" />
+      <path
+         d="M 5.2104101,3.9843138 C 5.0124101,3.7553138 4.9744102,3.304 5.1764102,3.07 L 7.549,0.136 C 7.752,-0.099 8.076,-0.102 8.278,0.131 l 2.536719,2.951 c 0.202,0.229 0.202,0.6693138 0,0.9023138 z"
+         class="si-glyph-fill"
+         id="path2"
+         style="fill:#ffffff" />
+      <path
+         d="m 10.820862,12.041199 c 0.2,0.168 0.198,0.519801 0,0.687801 L 8.314,15.833 C 8.111,16 7.789,16 7.589,15.833 L 5.2237549,12.729 c -0.2,-0.168 -0.2,-0.517801 0,-0.685801 z"
+         class="si-glyph-fill"
+         id="path3"
+         style="fill:#ffffff" />
+      <path
+         d="m 12.93,5.268 2.934,2.306 c 0.234,0.21 0.238,0.551 0.006,0.76 l -2.948,2.411 c -0.228,0.207 -0.654416,0.211 -0.886416,0 V 5.2620001 c 0,0 0.661416,-0.2040001 0.894416,0.006 z"
+         class="si-glyph-fill"
+         id="path4"
+         style="fill:#ffffff" />
+      <path
+         d="M 4.0128603,10.789 C 3.7838603,10.998 3.325,10.996 3.096,10.789 L 0.164,8.33 C -0.066,8.119 -0.066,7.781 0.168,7.57 L 3.076,5.213 c 0.229,-0.207 0.7068604,-0.2090001 0.9368604,-1e-7 z"
+         class="si-glyph-fill"
+         id="path5"
+         style="fill:#ffffff" />
+    </g>
+  </g>
+  <metadata
+     id="metadata6">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>104</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

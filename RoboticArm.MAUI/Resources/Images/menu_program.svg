@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Tree View icon by Arthur Shlain from Usefulicons.com -->
+
+<svg
+   xml:space="preserve"
+   version="1.1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 48 48"
+   width="192"
+   height="192"
+   id="svg1"
+   sodipodi:docname="tree-view.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs1" /><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" /><path
+     d="m 29.0704,29.0704 h 12.675998 c 1.399938,0 2.5352,-1.135263 2.5352,-2.5352 v -7.605599 c 0,-1.399937 -1.135262,-2.5352 -2.5352,-2.5352 H 29.0704 c -1.399938,0 -2.5352,1.135263 -2.5352,2.5352 v 2.5352 H 13.859202 v -7.6056 h 5.070399 c 1.399937,0 2.535199,-1.135262 2.535199,-2.535199 V 3.7184021 c 0,-1.3999374 -1.135262,-2.5351998 -2.535199,-2.5351998 H 6.2536021 c -1.3999379,0 -2.5351999,1.1352624 -2.5351999,2.5351998 v 7.6055999 c 0,1.399937 1.135262,2.535199 2.5351999,2.535199 h 5.0703999 v 26.619598 c 0,0.700222 0.567377,1.267599 1.267599,1.267599 H 26.5352 v 2.5352 c 0,1.399938 1.135262,2.5352 2.5352,2.5352 h 12.675998 c 1.399938,0 2.5352,-1.135262 2.5352,-2.5352 v -7.605599 c 0,-1.399937 -1.135262,-2.535199 -2.5352,-2.535199 H 29.0704 c -1.399938,0 -2.5352,1.135262 -2.5352,2.535199 v 2.535199 H 13.859202 V 24 H 26.5352 v 2.5352 c 0,1.399937 1.135262,2.5352 2.5352,2.5352 z m 0,-10.140799 H 41.746398 V 26.5352 H 29.0704 Z M 6.2536021,11.324002 V 3.7184021 H 18.929601 V 11.324002 Z M 29.0704,36.675999 h 12.675998 v 7.605599 H 29.0704 Z"
+     stroke="none"
+     id="path1"
+     style="fill:#ffffff;stroke-width:0.50704" /></svg>

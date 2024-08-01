@@ -1,0 +1,37 @@
+!Evergine.Assets.Exporters.ModelMetaFile,Evergine.Assets
+Id: d0ca6cbb-b253-4709-9d57-44b508f7245e
+Clips: []
+DefaultProfile:
+  ExcludeAsset: false
+  Name: null
+  Platform: Undefined
+ExportAnimations: true
+ExportAsRaw: false
+GenerateTangentSpace: true
+Profiles: {}
+Source:
+  Header:
+    Id: 198ea76d-efca-4337-872d-c326377d2430
+    IsCompressed: true
+  LastModified: 0001-01-01T00:00:00.0000000
+  ModelInfo:
+    Id: 15cc84f5-c199-4112-be23-d7caa9a668f6
+    AnimationTracks: []
+    EmbeddedResources: null
+    Materials:
+      - Item1: green medium gloss plastic
+        Item2: 4b32e35d-c276-4943-8a7c-48aa0d371c1e
+      - Item1: Blue
+        Item2: ce0b3e0e-92aa-4f6e-a2e1-85ff9f81f920
+      - Item1: Red
+        Item2: 4c2e2d15-acdd-489f-ae0e-981233f20462
+    Nodes:
+      - RootNode
+      - Axis
+      - Axis.Cilindro003
+      - Axis.Cone002
+      - Axis.Cone004
+      - Axis.Cilindro004
+      - Axis.Cilindro002
+      - Axis.Cone003
+SwapWindingOrder: false

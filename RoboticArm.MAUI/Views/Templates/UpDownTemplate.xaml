@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      x:Class="RoboticArm.MAUI.Views.Templates.UpDownTemplate"
+      xmlns:helpers="clr-namespace:RoboticArm.MAUI.Helpers"
+      HeightRequest="60"  Margin="0" RowSpacing="0"
+      x:Name="GridTemplate">
+    <Border WidthRequest="260"
+            Stroke="#515151"
+            BackgroundColor="#4d4d4d"
+            StrokeThickness="1"
+            Grid.Column="0" 
+            Grid.Row="0">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="5,5,5,5"/>
+        </Border.StrokeShape>
+
+        <Grid x:Name="GridMain"
+              ColumnDefinitions="40, *, 40">
+            <ImageButton 
+                Grid.Column="0"
+                BackgroundColor="Transparent">
+                <ImageButton.Source>
+                    <FontImageSource
+                        FontFamily="MyFontIcons"
+                        Size="25"
+                        Color="Gray"
+                        Glyph="{x:Static helpers:MyFontIcons.ArrowheadleftWf}"/>
+                </ImageButton.Source>
+            </ImageButton>
+
+            <Label 
+                Grid.Row="1"
+                Text="{Binding LblValue, Source={x:Reference GridTemplate}}"
+                FontSize="12"
+                TextColor="Black"
+
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"/>
+
+            <ImageButton 
+                Grid.Column="2"
+                BackgroundColor="Transparent">
+                <ImageButton.Source>
+                    <FontImageSource
+                    FontFamily="MyFontIcons"
+                    Size="25"
+                    Color="Gray"
+                    Glyph="{x:Static helpers:MyFontIcons.ArrowheadleftWf}"/>
+                </ImageButton.Source>
+            </ImageButton>
+        </Grid>
+        
+    </Border>
+    
+    
+   
+</Grid>
