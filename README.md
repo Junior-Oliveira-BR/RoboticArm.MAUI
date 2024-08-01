@@ -9,8 +9,7 @@
 This project uses .NET MAUI and Evergine to control a 5-axis robotic arm. It was developed with the goal of exploring the integration between these two technologies, leveraging the cross-platform user interface capabilities of .NET MAUI and the powerful 3D rendering of Evergine. The project not only demonstrates the control of a robotic arm but also serves as a case study on how to combine a modern UI development platform with a robust graphics engine for interactive simulations and visualizations.
 
 ## Functionality
-
-![Application Operation](./RoboticArm.MAUI/Resources/Assets/funcionamento.gif)
+![](https://github.com/Junior-Oliveira-BR/RoboticArm.MAUI/blob/master/RoboticArm.MAUI/Resources/Assets/animation.gif)
 
 The robotic arm can be moved along its independent axes, allowing precise control of each segment. Additionally, a basic inverse kinematics model is implemented to assist with positioning the arm, though this model is still a work in progress and requires further improvement.
 
