@@ -346,8 +346,8 @@ namespace RoboticArm.MAUI.ViewModels
                 {
                     ID = "CLAWBCN3D0001",
                     Name = "Printed Claw",
-                    Description = "Garra projetada pela BCN3D Technologies para impressão.\n\n" +
-                    "Garra aberta: 15cm",
+                    Description = "Gripper designed by BCN3D Technologies for printing.\n\n" +
+                    "Open claw: 15cm",
                     Image = "claw_front.png"
                 }
             };

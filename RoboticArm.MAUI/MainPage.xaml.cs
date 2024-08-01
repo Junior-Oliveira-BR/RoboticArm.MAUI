@@ -70,7 +70,7 @@ namespace RoboticArm.MAUI
         {
             int value = (int)e.NewValue;
             ((App)App.Current).SPEED = value;
-            lblSpeed.Text = String.Format("Velocidade: {0}", value);
+            lblSpeed.Text = String.Format("Speed: {0}", value);
         }
     }
 }

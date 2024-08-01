@@ -176,7 +176,7 @@
                 <buttons:SfSegmentedControl.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Base</x:String>
-                        <x:String>Ferramenta</x:String>
+                        <x:String>Tool</x:String>
                     </x:Array>
                 </buttons:SfSegmentedControl.ItemsSource>
             </buttons:SfSegmentedControl>
@@ -190,8 +190,8 @@
             <buttons:SfSegmentedControl CornerRadius="0" Grid.Row="3"  SelectedIndex="{Binding SelectedMovement, Mode=TwoWay}" >
                 <buttons:SfSegmentedControl.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
-                        <x:String>Articulação</x:String>
-                        <x:String>Coordenadas</x:String>
+                        <x:String>Articulation</x:String>
+                        <x:String>Coordinate</x:String>
                     </x:Array>
                 </buttons:SfSegmentedControl.ItemsSource>
             </buttons:SfSegmentedControl>
